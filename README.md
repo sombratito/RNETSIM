@@ -59,3 +59,17 @@ pytest tests/                  # unit + integration
 cd web && npm run cy:open      # Cypress e2e (interactive)
 cd web && npm run cy:run       # Cypress e2e (headless)
 ```
+
+## Screenshots
+
+### Network Topology Viewer
+
+![network topo](./images/rnetsim-rf-topology.png)
+
+### Map View
+
+![map](./images/rnetsim-rf-topography.png)
+
+### Device Profiles
+
+![map](./images/rnetsim-rf-device-profiles.png)
