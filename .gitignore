@@ -205,5 +205,20 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-=======
 .DS_Store
+
+local_prompts/
+
+# RNETSIM specific
+node_modules/
+web/dist/
+/data/
+.logs/
+dist/
+build/
+*.pyinstaller/
+
+# Cypress
+web/cypress/videos/
+web/cypress/screenshots/
+web/cypress/downloads/

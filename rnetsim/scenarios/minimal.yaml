@@ -1,0 +1,18 @@
+name: minimal
+description: "3 nodes — simplest possible scenario for basic testing"
+defaults:
+  medium: lora_sf8_125
+  role: endpoint
+nodes:
+  - name: alice
+    role: endpoint
+    interfaces:
+      - lora_sf8_125
+  - name: relay
+    role: transport
+    interfaces:
+      - lora_sf8_125
+  - name: bob
+    role: endpoint
+    interfaces:
+      - lora_sf8_125

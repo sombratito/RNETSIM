@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-rnetsim-bg text-gray-100;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-rnetsim-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-rnetsim-muted rounded-full;
+  }
+}

@@ -1,0 +1,153 @@
+name: helene-response
+description: >-
+  Hurricane Helene disaster response — Roan Highlands to Spruce Pine, NC.
+  Mountaintop LoRa backbone relays bridge the flood-devastated Toe River
+  valley via a canyon relay chain, with an EMS staging area and aerial
+  drone overwatch. Models realistic RF propagation through Appalachian
+  terrain. Based on the September 2024 disaster that isolated mountain
+  communities across NE Tennessee and NW North Carolina.
+featured: true
+terrain: true
+map:
+  center: [-82.12, 36.03]
+  zoom: 11
+  terrain: true
+defaults:
+  medium: lora_sf8_125
+
+nodes:
+  # ── Mountaintop backbone relays ────────────────────────────────────
+  # SF7 for best throughput on clear LOS links between peaks.
+  # All peak-to-peak distances 8–16 km, 30+ dB link margin.
+
+  # Roan High Knob — 6285 ft, highest point in the region
+  - name: relay-roan
+    role: transport
+    lat: 36.1047
+    lon: -82.1223
+    alt: 1913
+    interfaces: [lora_sf7_125]
+
+  # Iron Mountain ridge — bridges Roan and Unaka (7.9 km / 9.7 km)
+  - name: relay-iron
+    role: transport
+    lat: 36.1500
+    lon: -82.1900
+    alt: 1625
+    interfaces: [lora_sf7_125]
+
+  # Unaka Mountain — western anchor of the backbone
+  - name: relay-unaka
+    role: transport
+    lat: 36.1334
+    lon: -82.2965
+    alt: 1579
+    interfaces: [lora_sf7_125]
+
+  # ── Canyon relay chain ─────────────────────────────────────────────
+  # Descends from Carvers Gap ridge into the Toe River valley toward
+  # Spruce Pine. ~3 km hops, SF8 with 15+ dB NLOS margin per hop.
+  # Valley nodes CANNOT reach mountaintops — terrain shadow from ridges.
+
+  # Ridge-top gateway — dual interface bridges SF7 backbone to SF8 chain
+  # 1.9 km LOS to relay-roan
+  - name: chain-ridge-top
+    role: transport
+    lat: 36.0880
+    lon: -82.1280
+    alt: 1500
+    interfaces: [lora_sf7_125, lora_sf8_125]
+
+  # Upper slope — descending into drainage
+  - name: chain-upper
+    role: transport
+    lat: 36.0630
+    lon: -82.1170
+    alt: 1280
+    interfaces: [lora_sf8_125]
+
+  # Mid-upper slope — entering the canyon
+  - name: chain-mid-upper
+    role: transport
+    lat: 36.0380
+    lon: -82.1060
+    alt: 1050
+    interfaces: [lora_sf8_125]
+
+  # Mid canyon — upper Toe River area (landslide risk)
+  - name: chain-mid
+    role: transport
+    lat: 36.0130
+    lon: -82.0950
+    alt: 890
+    interfaces: [lora_sf8_125]
+
+  # Lower canyon — Toe River bend
+  - name: chain-lower
+    role: transport
+    lat: 35.9880
+    lon: -82.0840
+    alt: 830
+    interfaces: [lora_sf8_125]
+
+  # Valley floor — near the devastated Spruce Pine area
+  - name: chain-valley
+    role: endpoint
+    lat: 35.9560
+    lon: -82.0760
+    alt: 790
+    interfaces: [lora_sf8_125]
+
+  # ── EMS staging area ───────────────────────────────────────────────
+  # Co-located near Spruce Pine. LoRa node bridges canyon chain to
+  # local HaLow for high-bandwidth medical comms (video triage).
+
+  # Transport bridge — SF8 reaches chain-valley (4.3 km), HaLow for camp,
+  # sneakernet courier hub for isolated communities
+  - name: ems-spruce-pine
+    role: transport
+    lat: 35.9180
+    lon: -82.0670
+    alt: 790
+    interfaces: [lora_sf8_125, halow_4mhz, sneakernet]
+
+  # Medical data node — HaLow only, 280 m from ems-spruce-pine
+  - name: ems-medical
+    role: endpoint
+    lat: 35.9165
+    lon: -82.0645
+    alt: 790
+    interfaces: [halow_4mhz]
+
+  # ── Sneakernet courier route ───────────────────────────────────────
+  # Penland — isolated community in a terrain shadow with no radio
+  # coverage. Volunteers walk USB drives to/from ems-spruce-pine (~3 km
+  # mountain trail, ~30 min each way). The only comms lifeline until
+  # road crews restore vehicle access.
+  - name: community-penland
+    role: endpoint
+    lat: 35.8940
+    lon: -82.1050
+    alt: 820
+    interfaces: [sneakernet]
+
+  # ── Fixed-wing drone relay ─────────────────────────────────────────
+  # Orbiting ~600 m AGL over the disaster area (1400 m MSL).
+  # Altitude gives LOS to mountaintops AND canyon nodes — aerial backup.
+  - name: drone-overwatch
+    role: transport
+    lat: 35.9800
+    lon: -82.1000
+    alt: 1400
+    interfaces: [lora_sf7_125]
+
+events:
+  # Landslide severs mid-chain relay — forces reroute through drone
+  - at: "3m"
+    action: kill_node
+    target: chain-mid
+
+  # Recovery team restores the relay — network reconverges
+  - at: "7m"
+    action: revive_node
+    target: chain-mid

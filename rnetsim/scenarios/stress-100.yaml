@@ -1,0 +1,307 @@
+name: stress-100
+description: "100-node scale test — validates convergence, announce budget, and resource usage"
+defaults:
+  medium: lora_sf8_125
+nodes:
+  # 10 transport relays
+  - name: relay-01
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-02
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-03
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-04
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-05
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-06
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-07
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-08
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-09
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: relay-10
+    role: transport
+    interfaces: [lora_sf8_125]
+  # 90 endpoint nodes
+  - name: node-001
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-002
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-003
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-004
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-005
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-006
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-007
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-008
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-009
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-010
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-011
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-012
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-013
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-014
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-015
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-016
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-017
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-018
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-019
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-020
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-021
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-022
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-023
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-024
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-025
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-026
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-027
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-028
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-029
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-030
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-031
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-032
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-033
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-034
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-035
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-036
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-037
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-038
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-039
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-040
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-041
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-042
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-043
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-044
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-045
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-046
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-047
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-048
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-049
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-050
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-051
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-052
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-053
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-054
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-055
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-056
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-057
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-058
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-059
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-060
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-061
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-062
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-063
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-064
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-065
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-066
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-067
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-068
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-069
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-070
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-071
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-072
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-073
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-074
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-075
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-076
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-077
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-078
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-079
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-080
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-081
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-082
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-083
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-084
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-085
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-086
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-087
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-088
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-089
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-090
+    role: endpoint
+    interfaces: [lora_sf8_125]

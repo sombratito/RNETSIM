@@ -1,0 +1,37 @@
+{
+  "name": "rnetsim-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:e2e": "cypress run --e2e"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "maplibre-gl": "^4.7.1",
+    "pmtiles": "^3.2.0",
+    "protomaps-themes-base": "^4.1.0",
+    "d3": "^7.9.0",
+    "mobx": "^6.13.5",
+    "mobx-react-lite": "^4.0.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "cypress": "^13.17.0"
+  }
+}

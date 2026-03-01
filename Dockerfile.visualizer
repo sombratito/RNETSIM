@@ -1,0 +1,22 @@
+# Stage 1: Build React frontend
+FROM node:20-slim AS frontend
+WORKDIR /web
+COPY web/package.json web/package-lock.json* ./
+RUN npm ci --ignore-scripts
+COPY web/ .
+RUN npm run build
+
+# Stage 2: Python backend + built frontend
+FROM python:3.11-slim
+WORKDIR /app
+
+COPY pyproject.toml .
+COPY rnetsim/ rnetsim/
+RUN pip install --no-cache-dir .
+
+# Copy built React app
+COPY --from=frontend /web/dist /app/web/dist
+
+EXPOSE 3000
+
+CMD ["rnetsim", "serve", "--host", "0.0.0.0", "--port", "3000"]

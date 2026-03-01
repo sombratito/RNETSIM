@@ -1,0 +1,47 @@
+name: heterogeneous
+description: "Mixed media types — LoRa, WiFi, HaLow, Internet, and packet radio in one network"
+defaults:
+  medium: lora_sf8_125
+nodes:
+  # LoRa backbone
+  - name: lora-relay-01
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: lora-relay-02
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: lora-endpoint-01
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: lora-endpoint-02
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  # WiFi cluster
+  - name: wifi-hub
+    role: transport
+    interfaces: [wifi_local]
+  - name: wifi-node-01
+    role: endpoint
+    interfaces: [wifi_local]
+  - name: wifi-node-02
+    role: endpoint
+    interfaces: [wifi_local]
+  # HaLow bridge connecting WiFi to LoRa
+  - name: halow-bridge
+    role: transport
+    interfaces: [halow_4mhz, lora_sf8_125]
+  # Internet backhaul
+  - name: internet-gateway
+    role: transport
+    interfaces: [internet, lora_sf8_125]
+  # Packet radio node
+  - name: packet-radio-01
+    role: transport
+    interfaces: [packet_radio]
+  - name: packet-radio-02
+    role: endpoint
+    interfaces: [packet_radio]
+  # Remote satellite link
+  - name: satellite-node
+    role: transport
+    interfaces: [satellite, lora_sf8_125]

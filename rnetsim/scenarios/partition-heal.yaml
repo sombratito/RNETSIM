@@ -1,0 +1,31 @@
+name: partition-heal
+description: "6 nodes — network partition at T+2m, heal at T+5m, tests message queuing and reconvergence"
+defaults:
+  medium: lora_sf8_125
+nodes:
+  - name: alpha-01
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: alpha-02
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: alpha-03
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: bravo-01
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: bravo-02
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: bravo-03
+    role: endpoint
+    interfaces: [lora_sf8_125]
+events:
+  - at: "2m"
+    action: partition
+    params:
+      group_a: [alpha-01, alpha-02, alpha-03]
+      group_b: [bravo-01, bravo-02, bravo-03]
+  - at: "5m"
+    action: heal

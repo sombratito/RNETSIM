@@ -1,0 +1,32 @@
+name: sleep-wake
+description: "Field nodes with duty cycling — tests message delivery across sleep/wake cycles"
+defaults:
+  medium: lora_sf8_125
+nodes:
+  - name: base-station
+    role: transport
+    interfaces: [lora_sf8_125]
+    lxmf_propagation: true
+  - name: field-01
+    role: endpoint
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  - name: field-02
+    role: endpoint
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  - name: field-03
+    role: endpoint
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "3/57"
+  - name: sensor-01
+    role: endpoint
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  - name: sensor-02
+    role: endpoint
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  - name: always-on-relay
+    role: transport
+    interfaces: [lora_sf8_125]

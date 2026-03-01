@@ -1,0 +1,295 @@
+name: mountain-mesh
+description: "50 nodes with geographic spread — hilltop relays enable communication across terrain"
+terrain: true
+map:
+  center: [-82.55, 35.60]
+  zoom: 11
+  terrain: true
+defaults:
+  medium: lora_sf8_125
+nodes:
+  # Hilltop relays — high elevation, LoRa SF7 for range
+  - name: relay-peak-01
+    role: transport
+    lat: 35.6100
+    lon: -82.5300
+    alt: 1800
+    interfaces: [lora_sf7_125]
+  - name: relay-peak-02
+    role: transport
+    lat: 35.5900
+    lon: -82.5600
+    alt: 1650
+    interfaces: [lora_sf7_125]
+  - name: relay-peak-03
+    role: transport
+    lat: 35.6200
+    lon: -82.5800
+    alt: 1500
+    interfaces: [lora_sf7_125]
+  - name: relay-ridge-01
+    role: transport
+    lat: 35.6050
+    lon: -82.5450
+    alt: 1400
+    interfaces: [lora_sf7_125]
+  - name: relay-ridge-02
+    role: transport
+    lat: 35.5950
+    lon: -82.5750
+    alt: 1350
+    interfaces: [lora_sf7_125]
+  # Valley nodes — LoRa SF8, endpoints
+  - name: valley-01
+    role: endpoint
+    lat: 35.6000
+    lon: -82.5400
+    alt: 900
+    interfaces: [lora_sf8_125]
+  - name: valley-02
+    role: endpoint
+    lat: 35.5980
+    lon: -82.5500
+    alt: 920
+    interfaces: [lora_sf8_125]
+  - name: valley-03
+    role: endpoint
+    lat: 35.6020
+    lon: -82.5550
+    alt: 880
+    interfaces: [lora_sf8_125]
+  - name: valley-04
+    role: endpoint
+    lat: 35.5960
+    lon: -82.5650
+    alt: 910
+    interfaces: [lora_sf8_125]
+  - name: valley-05
+    role: endpoint
+    lat: 35.6040
+    lon: -82.5700
+    alt: 870
+    interfaces: [lora_sf8_125]
+  - name: valley-06
+    role: endpoint
+    lat: 35.5940
+    lon: -82.5350
+    alt: 950
+    interfaces: [lora_sf8_125]
+  - name: valley-07
+    role: endpoint
+    lat: 35.6060
+    lon: -82.5250
+    alt: 940
+    interfaces: [lora_sf8_125]
+  - name: valley-08
+    role: endpoint
+    lat: 35.5920
+    lon: -82.5450
+    alt: 960
+    interfaces: [lora_sf8_125]
+  - name: valley-09
+    role: endpoint
+    lat: 35.6080
+    lon: -82.5600
+    alt: 890
+    interfaces: [lora_sf8_125]
+  - name: valley-10
+    role: endpoint
+    lat: 35.5900
+    lon: -82.5550
+    alt: 930
+    interfaces: [lora_sf8_125]
+  # Field nodes with duty cycling
+  - name: field-01
+    role: endpoint
+    lat: 35.6010
+    lon: -82.5420
+    alt: 910
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  - name: field-02
+    role: endpoint
+    lat: 35.5970
+    lon: -82.5520
+    alt: 900
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  - name: field-03
+    role: endpoint
+    lat: 35.6030
+    lon: -82.5620
+    alt: 885
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  - name: field-04
+    role: endpoint
+    lat: 35.5990
+    lon: -82.5720
+    alt: 895
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  - name: field-05
+    role: endpoint
+    lat: 35.6050
+    lon: -82.5380
+    alt: 920
+    interfaces: [lora_sf8_125]
+    sleep_schedule: "5/55"
+  # Solar sensors — ultra low power, SF12
+  - name: sensor-01
+    role: endpoint
+    lat: 35.6005
+    lon: -82.5410
+    alt: 905
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  - name: sensor-02
+    role: endpoint
+    lat: 35.5975
+    lon: -82.5510
+    alt: 915
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  - name: sensor-03
+    role: endpoint
+    lat: 35.6025
+    lon: -82.5610
+    alt: 875
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  - name: sensor-04
+    role: endpoint
+    lat: 35.5985
+    lon: -82.5710
+    alt: 890
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  - name: sensor-05
+    role: endpoint
+    lat: 35.6045
+    lon: -82.5310
+    alt: 935
+    interfaces: [lora_sf12_125]
+    sleep_schedule: "1/59"
+  # More valley endpoints to reach 50
+  - name: valley-11
+    role: endpoint
+    lat: 35.6070
+    lon: -82.5350
+    alt: 945
+    interfaces: [lora_sf8_125]
+  - name: valley-12
+    role: endpoint
+    lat: 35.5930
+    lon: -82.5550
+    alt: 925
+    interfaces: [lora_sf8_125]
+  - name: valley-13
+    role: endpoint
+    lat: 35.6090
+    lon: -82.5450
+    alt: 935
+    interfaces: [lora_sf8_125]
+  - name: valley-14
+    role: endpoint
+    lat: 35.5910
+    lon: -82.5650
+    alt: 905
+    interfaces: [lora_sf8_125]
+  - name: valley-15
+    role: endpoint
+    lat: 35.6015
+    lon: -82.5480
+    alt: 915
+    interfaces: [lora_sf8_125]
+  - name: valley-16
+    role: endpoint
+    lat: 35.5965
+    lon: -82.5580
+    alt: 895
+    interfaces: [lora_sf8_125]
+  - name: valley-17
+    role: endpoint
+    lat: 35.6035
+    lon: -82.5680
+    alt: 880
+    interfaces: [lora_sf8_125]
+  - name: valley-18
+    role: endpoint
+    lat: 35.5945
+    lon: -82.5380
+    alt: 940
+    interfaces: [lora_sf8_125]
+  - name: valley-19
+    role: endpoint
+    lat: 35.6055
+    lon: -82.5280
+    alt: 950
+    interfaces: [lora_sf8_125]
+  - name: valley-20
+    role: endpoint
+    lat: 35.5925
+    lon: -82.5480
+    alt: 930
+    interfaces: [lora_sf8_125]
+  - name: valley-21
+    role: endpoint
+    lat: 35.6085
+    lon: -82.5550
+    alt: 910
+    interfaces: [lora_sf8_125]
+  - name: valley-22
+    role: endpoint
+    lat: 35.5915
+    lon: -82.5350
+    alt: 955
+    interfaces: [lora_sf8_125]
+  - name: valley-23
+    role: endpoint
+    lat: 35.6075
+    lon: -82.5650
+    alt: 885
+    interfaces: [lora_sf8_125]
+  - name: valley-24
+    role: endpoint
+    lat: 35.5935
+    lon: -82.5750
+    alt: 870
+    interfaces: [lora_sf8_125]
+  - name: valley-25
+    role: endpoint
+    lat: 35.6065
+    lon: -82.5400
+    alt: 920
+    interfaces: [lora_sf8_125]
+  - name: valley-26
+    role: endpoint
+    lat: 35.5955
+    lon: -82.5500
+    alt: 910
+    interfaces: [lora_sf8_125]
+  - name: valley-27
+    role: endpoint
+    lat: 35.6095
+    lon: -82.5600
+    alt: 900
+    interfaces: [lora_sf8_125]
+  - name: valley-28
+    role: endpoint
+    lat: 35.5905
+    lon: -82.5700
+    alt: 875
+    interfaces: [lora_sf8_125]
+  - name: valley-29
+    role: endpoint
+    lat: 35.6008
+    lon: -82.5330
+    alt: 945
+    interfaces: [lora_sf8_125]
+  - name: valley-30
+    role: endpoint
+    lat: 35.5978
+    lon: -82.5430
+    alt: 930
+    interfaces: [lora_sf8_125]

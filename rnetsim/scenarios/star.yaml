@@ -1,0 +1,32 @@
+name: star
+description: "1 hub + 8 spokes — tests centralized routing through a single transport node"
+defaults:
+  medium: lora_sf8_125
+nodes:
+  - name: hub
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: spoke-01
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-02
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-03
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-04
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-05
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-06
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-07
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: spoke-08
+    role: endpoint
+    interfaces: [lora_sf8_125]

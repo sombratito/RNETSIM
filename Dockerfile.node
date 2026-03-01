@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+# tc/netem requires iproute2 inside the container (NET_ADMIN cap)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends iproute2 iptables \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Reticulum and LXMF
+RUN pip install --no-cache-dir rns lxmf
+
+# Copy node scripts
+COPY rnetsim/node/entrypoint.sh /entrypoint.sh
+COPY rnetsim/node/health.py /health.py
+COPY rnetsim/node/telemetry.py /telemetry.py
+RUN chmod +x /entrypoint.sh
+
+# Reticulum TCP + health + telemetry
+EXPOSE 4242 8080 9100
+
+HEALTHCHECK --interval=10s --timeout=5s --retries=3 \
+    CMD python /health.py --check
+
+ENTRYPOINT ["/entrypoint.sh"]

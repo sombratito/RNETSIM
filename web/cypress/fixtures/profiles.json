@@ -1,0 +1,58 @@
+[
+  {
+    "id": "edge-c2",
+    "name": "Edge C2",
+    "abbreviation": "C2",
+    "color": "#3b82f6",
+    "cpu": "4x A76",
+    "ram": "4 GB",
+    "radio": "LoRa SF8",
+    "bandwidth_display": "3.1 kbps",
+    "medium": "lora_sf8_125",
+    "role": "transport",
+    "sleep_schedule": null,
+    "built_in": true
+  },
+  {
+    "id": "field-node",
+    "name": "Field Node",
+    "abbreviation": "FN",
+    "color": "#22c55e",
+    "cpu": "4x A53",
+    "ram": "512 MB",
+    "radio": "LoRa SF8",
+    "bandwidth_display": "3.1 kbps",
+    "medium": "lora_sf8_125",
+    "role": "endpoint",
+    "sleep_schedule": "5/55",
+    "built_in": true
+  },
+  {
+    "id": "hilltop-relay",
+    "name": "Hilltop Relay",
+    "abbreviation": "HR",
+    "color": "#ef4444",
+    "cpu": "2x A72",
+    "ram": "4 GB",
+    "radio": "LoRa SF7",
+    "bandwidth_display": "5.5 kbps",
+    "medium": "lora_sf7_125",
+    "role": "transport",
+    "sleep_schedule": null,
+    "built_in": true
+  },
+  {
+    "id": "solar-sensor",
+    "name": "Solar Sensor",
+    "abbreviation": "SS",
+    "color": "#eab308",
+    "cpu": "1x LX7",
+    "ram": "520 KB",
+    "radio": "LoRa SF12",
+    "bandwidth_display": "293 bps",
+    "medium": "lora_sf12_125",
+    "role": "endpoint",
+    "sleep_schedule": "1/59",
+    "built_in": true
+  }
+]

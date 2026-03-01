@@ -1,0 +1,37 @@
+{
+  "name": "helene-response",
+  "description": "Hurricane Helene disaster response — Roan Highlands to Spruce Pine, NC.",
+  "featured": true,
+  "terrain": true,
+  "map": {
+    "center": [-82.12, 36.03],
+    "zoom": 11,
+    "terrain": true,
+    "source": "protomaps",
+    "style": "dark"
+  },
+  "defaults": {
+    "medium": "lora_sf8_125",
+    "tx_power": 20,
+    "role": "endpoint"
+  },
+  "nodes": [
+    { "name": "relay-roan", "role": "transport", "lat": 36.1047, "lon": -82.1223, "alt": 1913, "interfaces": ["lora_sf7_125"] },
+    { "name": "relay-iron", "role": "transport", "lat": 36.15, "lon": -82.19, "alt": 1625, "interfaces": ["lora_sf7_125"] },
+    { "name": "relay-unaka", "role": "transport", "lat": 36.1334, "lon": -82.2965, "alt": 1579, "interfaces": ["lora_sf7_125"] },
+    { "name": "chain-ridge-top", "role": "transport", "lat": 36.088, "lon": -82.128, "alt": 1500, "interfaces": ["lora_sf7_125", "lora_sf8_125"] },
+    { "name": "chain-upper", "role": "transport", "lat": 36.063, "lon": -82.117, "alt": 1280, "interfaces": ["lora_sf8_125"] },
+    { "name": "chain-mid-upper", "role": "transport", "lat": 36.038, "lon": -82.106, "alt": 1050, "interfaces": ["lora_sf8_125"] },
+    { "name": "chain-mid", "role": "transport", "lat": 36.013, "lon": -82.095, "alt": 890, "interfaces": ["lora_sf8_125"] },
+    { "name": "chain-lower", "role": "transport", "lat": 35.988, "lon": -82.084, "alt": 830, "interfaces": ["lora_sf8_125"] },
+    { "name": "chain-valley", "role": "endpoint", "lat": 35.956, "lon": -82.076, "alt": 790, "interfaces": ["lora_sf8_125"] },
+    { "name": "ems-spruce-pine", "role": "transport", "lat": 35.918, "lon": -82.067, "alt": 790, "interfaces": ["lora_sf8_125", "halow_4mhz"] },
+    { "name": "ems-medical", "role": "endpoint", "lat": 35.9165, "lon": -82.0645, "alt": 790, "interfaces": ["halow_4mhz"] },
+    { "name": "drone-overwatch", "role": "transport", "lat": 35.98, "lon": -82.1, "alt": 1400, "interfaces": ["lora_sf7_125"] }
+  ],
+  "gateways": [],
+  "events": [
+    { "at": "3m", "action": "kill_node", "target": "chain-mid" },
+    { "at": "7m", "action": "revive_node", "target": "chain-mid" }
+  ]
+}

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rnetsim"
+version = "0.1.0"
+description = "Docker-based Reticulum network simulator with visual scenario builder"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Kingsland Academy LLC" },
+]
+dependencies = [
+    "fastapi>=0.104",
+    "uvicorn[standard]>=0.24",
+    "docker>=7.0",
+    "pyyaml>=6.0",
+    "httpx>=0.25",
+    "click>=8.1",
+    "pydantic>=2.5",
+    "python-multipart>=0.0.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.23",
+    "httpx",
+    "ruff>=0.1",
+]
+build = [
+    "pyinstaller>=6.0",
+]
+
+[project.scripts]
+rnetsim = "rnetsim.cli:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = [
+    "slow: marks tests as slow (100-node scale tests)",
+]

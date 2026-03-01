@@ -1,0 +1,35 @@
+name: linear-chain
+description: "10 nodes in a line — each connects only to neighbors, tests multi-hop transport"
+defaults:
+  medium: lora_sf8_125
+nodes:
+  - name: node-01
+    role: endpoint
+    interfaces: [lora_sf8_125]
+  - name: node-02
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-03
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-04
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-05
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-06
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-07
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-08
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-09
+    role: transport
+    interfaces: [lora_sf8_125]
+  - name: node-10
+    role: endpoint
+    interfaces: [lora_sf8_125]

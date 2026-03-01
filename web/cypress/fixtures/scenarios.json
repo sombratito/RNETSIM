@@ -1,0 +1,58 @@
+[
+  {
+    "name": "helene-response",
+    "description": "Hurricane Helene disaster response — Roan Highlands to Spruce Pine, NC",
+    "node_count": 12,
+    "built_in": true,
+    "featured": true
+  },
+  {
+    "name": "heterogeneous",
+    "description": "Mixed media types with bridge nodes",
+    "node_count": 8,
+    "built_in": true,
+    "featured": false
+  },
+  {
+    "name": "linear-chain",
+    "description": "10-node linear chain for multi-hop testing",
+    "node_count": 10,
+    "built_in": true,
+    "featured": false
+  },
+  {
+    "name": "minimal",
+    "description": "3-node LoRa network for basic testing",
+    "node_count": 3,
+    "built_in": true,
+    "featured": false
+  },
+  {
+    "name": "mountain-mesh",
+    "description": "50-node mesh across NC mountain terrain",
+    "node_count": 50,
+    "built_in": true,
+    "featured": false
+  },
+  {
+    "name": "partition-heal",
+    "description": "Network partition and healing events",
+    "node_count": 6,
+    "built_in": true,
+    "featured": false
+  },
+  {
+    "name": "sleep-wake",
+    "description": "Duty-cycling sensor nodes",
+    "node_count": 7,
+    "built_in": true,
+    "featured": false
+  },
+  {
+    "name": "stress-100",
+    "description": "100-node stress test",
+    "node_count": 100,
+    "built_in": true,
+    "featured": false
+  }
+]
